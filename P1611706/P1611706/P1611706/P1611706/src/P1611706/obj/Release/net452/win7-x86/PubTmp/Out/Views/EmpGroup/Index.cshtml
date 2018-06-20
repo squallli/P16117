@@ -1,0 +1,84 @@
+﻿
+
+@section headercss
+{
+    <link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+    <link href="~/css/datatables.min.css" rel="stylesheet" />
+    <link href="~/css/text_clear_button.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .btn span.glyphicon {
+            opacity: 0;
+        }
+
+        .btn.active span.glyphicon {
+            opacity: 1;
+        }
+    </style>
+
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        <a href="@(@Url.Action("Index","EmpGroup"))">人員群組指派</a>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">員工編號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" id="EmployeeNo" name="EmployeeNo">
+                                    <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">員工姓名</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" id="EmployeeName" name="EmployeeName">
+                                    <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <button id="btnSearch" class="edit btn btn-success" onclick="searchEmpGroup()"><i class="fa fa-fw fa-search"></i>搜尋</button>
+                        </div>
+                    </div>
+                    <br />
+                    <table id="empGroup-table" class="table table-bordered text-center" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:25%">員工編號</th>
+                                <th style="width:25%">姓名</th>
+                                <th style="width:25%">權限群組</th>
+                                <th style="width:25%"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section pagejs
+{
+    <script src="~/js/datatables.all.min.js"></script>
+    <script src="~/js/datatables.bootstrap.js"></script>
+    <script src="~/js/datatables.min.js"></script>
+    <script src="~/js/bootstap-dialog.min.js"></script>
+    <script src="~/js/empgroup.datatables.js"></script>
+    <script src="~/js/text.clear.button.js"></script>
+}

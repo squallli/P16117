@@ -1,0 +1,134 @@
+﻿
+@section headercss
+{
+<link href="~/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+	<link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+	<link href="~/css/datatables.min.css" rel="stylesheet" />
+	<link href="~/css/text_clear_button.css" rel="stylesheet" />
+	<link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+<link href="~/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+
+
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>
+		<a href="@(@Url.Action("Index","OrderLog"))">錯誤紀錄</a>
+	</h1>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary">
+				<div class="box-header">
+				</div><!-- /.box-header -->
+				<div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">時間(起)</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="LogDateStart" readonly="readonly" />
+                                </div>
+                                <span class="input-group-btn">
+                                    <button Id="btnDateStart" class="btn btn-default btn-flat"><span class="glyphicon glyphicon-calendar"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">時間(迄)</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="LogDateEnd" readonly="readonly" />
+                                </div>
+                                <span class="input-group-btn">
+                                    <button Id="btnDateEnd" class="btn btn-default btn-flat"><span class="glyphicon glyphicon-calendar"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">單別</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" id="OrderType" name="OrderType">
+                                    <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <span class="input-group-addon">單號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" id="OrderNo" name="OrderNo">
+                                    <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">品號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" id="ProductNo" name="ProductNo">
+                                    <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button id="btnSearch" class="edit btn btn-success" onclick="searchOrderLog()"><i class="fa fa-fw fa-search"></i>搜尋</button>
+                        </div>
+                    </div>
+					<br />
+					<table id="orderLog-table" class="table table-bordered text-center" style="width:1000px">
+						<thead>
+							<tr>
+								<th>日期</th>
+								<th>時間</th>
+								<th>單別</th>
+								<th>單號</th>
+								<th>作業別</th>
+								<th>品號</th>
+								<th>原始數量</th>
+								<th>實際數量</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+						</div>
+					</div>
+				</div>
+	</div>
+</section>
+
+
+@section pagejs
+{
+<script src="~/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="~/js/datatables.all.min.js"></script>
+<script src="~/js/datatables.bootstrap.js"></script>
+<script src="~/js/datatables.min.js"></script>
+<script src="~/js/order.log.datatables.js"></script>
+<script src="~/js/bootstap-dialog.min.js"></script>
+<script src="~/js/text.clear.button.js"></script>
+<script>
+    $("#OrderType").keyup(function (event) {
+        if (event.keyCode ==13) {
+            $("#btnSearch").click();
+        }
+    });
+    $("#OrderNo").keyup(function (event) {
+        if (event.keyCode ==13) {
+            $("#btnSearch").click();
+        }
+    });
+    $("#ProductNo").keyup(function (event) {
+        if (event.keyCode ==13) {
+            $("#btnSearch").click();
+        }
+    });
+</script>
+        }

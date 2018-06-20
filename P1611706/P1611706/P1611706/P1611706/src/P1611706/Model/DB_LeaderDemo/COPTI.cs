@@ -1,0 +1,145 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace P1611706.Model
+{
+    public class COPTI
+	{
+        public string COMPANY { get; set; }
+        public string CREATOR { get; set; }
+        public string USR_GROUP { get; set; }
+		public string CREATE_DATE { get; set; }
+		public string MODIFIER { get; set; }
+		public string MODI_DATE { get; set; }
+		public Decimal FLAG { get; set; }
+		public string CREATE_TIME { get; set; }
+		public string MODI_TIME { get; set; }
+		public string TRANS_TYPE { get; set; }
+		public string TRANS_NAME { get; set; }
+		public string sync_date { get; set; }
+		public string sync_time { get; set; }
+		public string sync_mark { get; set; }
+		public Decimal sync_count { get; set; }
+		public string DataUser { get; set; }
+		public string DataGroup { get; set; }
+		public string TI001 { get; set; }
+		public string TI002 { get; set; }
+		public string TI003 { get; set; }
+		public string TI004 { get; set; }
+		public string TI005 { get; set; }
+		public string TI006 { get; set; }
+		public string TI007 { get; set; }
+		public string TI008 { get; set; }
+		public Decimal TI009 { get; set; }
+		public Decimal TI010 { get; set; }
+		public Decimal TI011 { get; set; }
+		public string TI012 { get; set; }
+		public string TI013 { get; set; }
+		public string TI014 { get; set; }
+		public string TI015 { get; set; }
+		public Decimal TI016 { get; set; }
+		public string TI017 { get; set; }
+		public string TI018 { get; set; }
+		public string TI019 { get; set; }
+		public string TI020 { get; set; }
+		public string TI021 { get; set; }
+		public string TI022 { get; set; }
+		public string TI023 { get; set; }
+		public string TI024 { get; set; }
+		public string TI025 { get; set; }
+		public string TI026 { get; set; }
+		public string TI027 { get; set; }
+		public Decimal TI028 { get; set; }
+		public Decimal TI029 { get; set; }
+		public string TI030 { get; set; }
+		public string TI031 { get; set; }
+		public string TI032 { get; set; }
+		public string TI033 { get; set; }
+		public string TI034 { get; set; }
+		public string TI035 { get; set; }
+		public Decimal TI036 { get; set; }
+		public Decimal TI037 { get; set; }
+		public Decimal TI038 { get; set; }
+		public string TI039 { get; set; }
+		public Decimal TI040 { get; set; }
+		public string TI041 { get; set; }
+		public string TI042 { get; set; }
+		public string TI043 { get; set; }
+		public string TI044 { get; set; }
+		public Decimal TI045 { get; set; }
+		public string TI046 { get; set; }
+		public string TI047 { get; set; }
+		public Decimal TI048 { get; set; }
+		public string TI049 { get; set; }
+		public string TI050 { get; set; }
+		public string TI051 { get; set; }
+		public Decimal TI052 { get; set; }
+		public string TI053 { get; set; }
+		public Decimal TI054 { get; set; }
+		public string TI055 { get; set; }
+		public string TI056 { get; set; }
+		public string TI057 { get; set; }
+		public string TI058 { get; set; }
+		public Decimal TI059 { get; set; }
+		public Decimal TI060 { get; set; }
+		public string TI061 { get; set; }
+		public string TI062 { get; set; }
+		public string TI063 { get; set; }
+		public string TI064 { get; set; }
+		public string TI065 { get; set; }
+		public string TI066 { get; set; }
+		public string TI067 { get; set; }
+		public string TI068 { get; set; }
+		public Decimal TI069 { get; set; }
+		public string TI070 { get; set; }
+		public Decimal TI071 { get; set; }
+		public Decimal TI072 { get; set; }
+		public Decimal TI073 { get; set; }
+		public string TI074 { get; set; }
+		public string TI075 { get; set; }
+		public string TI076 { get; set; }
+		public string TI077 { get; set; }
+		public string TI078 { get; set; }
+		public string TI079 { get; set; }
+		public string TI080 { get; set; }
+		public string TI081 { get; set; }
+		public Decimal TI082 { get; set; }
+		public string TI083 { get; set; }
+		public string TI084 { get; set; }
+		public string TI085 { get; set; }
+		public Decimal TI086 { get; set; }
+		public string TI087 { get; set; }
+		public Decimal TI088 { get; set; }
+		public Decimal TI089 { get; set; }
+		public Decimal TI090 { get; set; }
+		public Decimal TI091 { get; set; }
+		public Decimal TI092 { get; set; }
+		public Decimal TI093 { get; set; }
+		public Decimal TI094 { get; set; }
+		public string TI095 { get; set; }
+		public Decimal TI096 { get; set; }
+		public Decimal TI097 { get; set; }
+		public Decimal TI098 { get; set; }
+		public Decimal TI099 { get; set; }
+		public string TI100 { get; set; }
+		public string TI101 { get; set; }
+		public string TI102 { get; set; }
+		public string TI103 { get; set; }
+		public string TI104 { get; set; }
+		public string TI105 { get; set; }
+		public string UDF01 { get; set; }
+		public string UDF02 { get; set; }
+		public string UDF03 { get; set; }
+		public string UDF04 { get; set; }
+		public string UDF05 { get; set; }
+		public Decimal UDF06 { get; set; }
+		public Decimal UDF07 { get; set; }
+		public Decimal UDF08 { get; set; }
+		public Decimal UDF09 { get; set; }
+		public Decimal UDF10 { get; set; }
+
+	}
+}

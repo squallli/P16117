@@ -1,0 +1,140 @@
+﻿@using P1611706.Model
+
+@section headercss
+    {
+
+    <link href="~/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+    <link href="~/css/datatables.min.css" rel="stylesheet" />
+    <link href="~/css/text_clear_button.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+<link href="~/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+        
+
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        <a href="@(@Url.Action("Index","InventorySummary"))">盤點彙總</a><span id="TitlePage"></span>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12" id="DivHead">
+            <div class="box box-primary">
+                <div class="box-header">
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">盤點日期</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="InventoryDate" readonly="readonly"/>
+                                </div>
+                                <span class="input-group-btn">
+                                    <button Id="btnDate" class="btn btn-default btn-flat"><span class="glyphicon glyphicon-calendar"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">盤點底稿</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <select class="form-control" id="InventoryNo" name="InventoryNo">
+                                        <option value="">--請選擇日期--</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button id="btnSearch" class="edit btn btn-success" onclick="Search()"><i class="fa fa-fw fa-search"></i>查詢</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button id="btnSummary" class="edit btn btn-info" onclick="Summary()"><i class="fa fa-fw fa-plus"></i>彙總</button>
+                        </div>
+                    </div>
+                    <br />
+                    <table id="Inventory-table" class="table table-bordered text-center" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:30%">產品名稱</th>
+                                <th style="width:30%">棧板號</th>
+                                <th style="width:15%">應盤箱數</th>
+                                <th style="width:15%">實盤箱數</th>
+                                <th style="width:10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" id="DivDetail" style="display:none">
+            <div class="box box-primary">
+                <div class="box-header">
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">盤點日期</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="txtInventory_Date" value=@ViewData["InventoryDate"] disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">底稿編號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="txtInventory_No" value=@ViewData["InventoryNo"] disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon">棧板編號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="txtPallets_No" value=@ViewData["PalletsNo"] readonly="readonly" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button id="btnSearch" class="btn btn-warning" onclick="Return()"><i class="fa fa-fw fa-undo"></i>返回</button>
+                        </div>
+                    </div>
+                    <br />
+                    <table id="palletsLists-table" class="table table-bordered text-center" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:70%">箱號</th>
+                                <th style="width:10%">應盤袋數</th>
+                                <th style="width:10%">實盤袋數</th>
+                                <th style="width:10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section pagejs
+        {
+
+        <script src="~/plugins/datepicker/bootstrap-datepicker.js"></script>
+        <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+        <script src="~/js/datatables.all.min.js"></script>
+        <script src="~/js/datatables.bootstrap.js"></script>
+        <script src="~/js/datatables.min.js"></script>
+        <script src="~/js/packinglistsE.datatables.js"></script>
+        <script src="~/js/bootstap-dialog.min.js"></script>
+        <script src="~/js/text.clear.button.js"></script>
+            <script src="~/js/InventorySummary/Index.js"></script>
+            <script src="~/plugins/blockUI/jquery.blockUI.js"></script>
+    }
+</section>

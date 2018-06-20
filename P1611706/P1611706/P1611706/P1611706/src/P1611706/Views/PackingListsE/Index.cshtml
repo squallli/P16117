@@ -1,0 +1,145 @@
+﻿@using P1611706.Model
+
+@section headercss
+{
+	<link href="~/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+	<link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+	<link href="~/css/datatables.min.css" rel="stylesheet" />
+	<link href="~/css/text_clear_button.css" rel="stylesheet" />
+	<link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" rel="stylesheet" />
+<link href="~/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+<style>
+         .ui-autocomplete {
+             max-height: 100px;
+             overflow-y: auto;
+             /* prevent horizontal scrollbar */
+             overflow-x: hidden;
+         }
+         
+</style>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>
+		<a href="@(@Url.Action("Index","PackingListsE"))">產品報表</a>
+	</h1>
+</section>
+<section class="content">
+	<iframe id="my_iframe" style="display:none;"></iframe>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary">
+				<div class="box-header">
+				</div><!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">搜尋時間(起)</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="PackingTimeStart" readonly="readonly" />
+                                </div>
+                                <span class="input-group-btn">
+                                    <button Id="btnDateStart" class="btn btn-default btn-flat"><span class="glyphicon glyphicon-calendar"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">搜尋時間(迄)</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="PackingTimeEnd" readonly="readonly" />
+                                </div>
+                                <span class="input-group-btn">
+                                    <button Id="btnDateEnd" class="btn btn-default btn-flat"><span class="glyphicon glyphicon-calendar"></span></button>
+                                </span>
+                            </div>
+                        </div>
+						
+						<div class="col-md-3">
+							<div class="input-group">
+								<span class="input-group-addon">產品名稱</span>
+								<div class="form-group has-feedback has-clear">
+									<input type="text" class="form-control" id="ProductName" name="ProductName">
+									<span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<button id="btnSearch" class="edit btn btn-success" onclick="searchPackingLists()"><i class="fa fa-fw fa-search"></i>搜尋</button>
+						</div>
+						<div class="col-md-2 text-right">
+							<button id="btnOut" class="edit btn btn-info" onclick="excelOut()"><i class="fa fa-fw fa-plus"></i>匯出</button>
+						</div>
+					</div>
+					<br />
+					<table id="packingLists-table" class="table table-bordered text-center" cellspacing="0">
+						<thead>
+							<tr>
+								<th style="width:15%">代工廠編號</th>
+								<th style="width:15%">日期</th>
+								<th style="width:15%">產品名稱</th>
+								<th style="width:15%">栈板數</th>
+								<th style="width:15%">有效期限</th>
+								<th style="width:15%">數量(箱)</th>
+								<th style="width:10%"></th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	@section pagejs
+{   
+    <script src="~/plugins/datepicker/bootstrap-datepicker.js"></script>
+		<script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="~/js/datatables.all.min.js"></script>
+		<script src="~/js/datatables.bootstrap.js"></script>
+		<script src="~/js/datatables.min.js"></script>
+	<script src="~/js/packinglistsE.datatables.js"></script>
+		<script src="~/js/bootstap-dialog.min.js"></script>
+		<script src="~/js/text.clear.button.js"></script>
+
+		<script>
+
+            $("#ProductName").keyup(function (event) {
+                if (event.keyCode == 13) {
+                    $("#btnSearch").click();
+                }
+            });
+
+
+			$("#PackingTime").keypress(function (event) { event.preventDefault(); });//禁止手動輸入時間
+
+			//匯出excel
+            function excelOut() {
+                var txtproductName = $('#ProductName').val();
+                var txtpackingTime = $('#PackingTimeStart').val() + '-' + $('#PackingTimeEnd').val();
+
+
+				$.ajax(
+					{
+						url: '@Url.Action("Export", "PackingListsE")',
+						contentType: 'application/json; charset=utf-8',
+                        data: { "PackingTime": txtpackingTime, "ProductName": txtproductName },
+						datatype: 'json',
+						type: "GET",
+						success: function (data) {
+							if (data == "success")
+								window.location = '@Url.Action("Download", "PackingListsE")';
+							else if (data == "noData")
+								alert("無資料匯出!!");
+							else
+								alert("匯出失敗!!" + data);
+						}
+					});
+			}
+		</script>
+	}
+</section>

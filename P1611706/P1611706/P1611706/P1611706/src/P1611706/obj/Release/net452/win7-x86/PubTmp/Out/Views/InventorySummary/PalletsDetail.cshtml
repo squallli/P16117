@@ -1,0 +1,85 @@
+﻿@using P1611706.Model
+
+@section headercss
+    {
+    <link href="~/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+    <link href="~/css/datatables.min.css" rel="stylesheet" />
+    <link href="~/css/text_clear_button.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+<link href="~/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        <a href="@(@Url.Action("Index","InventorySummary"))">盤點彙總</a> > 棧板細項
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">盤點日期</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="Inventory_Date" value=@ViewData["InventoryDate"] disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">底稿編號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="Inventory_No" value=@ViewData["InventoryNo"] disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-addon">棧板編號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control pull-right" id="Pallets_No" value=@ViewData["PalletsNo"] readonly="readonly" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button id="btnSearch" class="btn btn-warning" onclick="Return()"><i class="fa fa-fw fa-undo"></i>返回</button>
+                        </div>
+                    </div>
+                    <br />
+                    <table id="palletsLists-table" class="table table-bordered text-center" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:70%">箱號</th>
+                                <th style="width:10%">應盤袋數</th>
+                                <th style="width:10%">實盤袋數</th>
+                                <th style="width:10%"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section pagejs
+        {
+        <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+        <script src="~/js/datatables.all.min.js"></script>
+        <script src="~/js/datatables.bootstrap.js"></script>
+        <script src="~/js/datatables.min.js"></script>
+        <script src="~/js/bootstap-dialog.min.js"></script>
+        <script src="~/js/text.clear.button.js"></script>
+        <script src="~/js/InventorySummary/Inventory.Pallets.datatables.js"></script>
+
+    }
+</section>

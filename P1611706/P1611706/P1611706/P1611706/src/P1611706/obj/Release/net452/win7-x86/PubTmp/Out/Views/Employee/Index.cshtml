@@ -1,0 +1,82 @@
+﻿
+
+@section headercss
+{
+    <link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+    <link href="~/css/datatables.min.css" rel="stylesheet" />
+    <link href="~/css/text_clear_button.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+
+
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+		<a href="@(@Url.Action("Index","Employee"))">人員基本資料維護作業</a>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">員工編號</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" id="EmployeeNo" name="EmployeeNo">
+                                    <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">員工姓名</span>
+                                <div class="form-group has-feedback has-clear">
+                                    <input type="text" class="form-control" id="EmployeeName" name="EmployeeName">
+                                    <span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button id="btnSearch" class="edit btn btn-success" onclick="searchEmployee()"><i class="fa fa-fw fa-search"></i>搜尋</button>
+                        </div>
+						<div class="col-md-4 text-right">
+							<button id="btnAdd" class="edit btn btn-info" onclick="addEmployee()"><i class="fa fa-fw fa-plus"></i>新增員工</button>
+						</div>
+                    </div>
+                    <br />
+                    <table id="employee-table" class="table table-bordered text-center" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:25%">員工編號</th>
+                                <th style="width:25%">姓名</th>
+                                <th style="width:25%">權限群組</th>
+                                <th style="width:25%"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section pagejs
+{
+    <script src="~/js/datatables.all.min.js"></script>
+    <script src="~/js/datatables.bootstrap.js"></script>
+    <script src="~/js/datatables.min.js"></script>
+    <script src="~/js/bootstap-dialog.min.js"></script>
+    <script src="~/js/employee.datatables.js"></script>
+    <script src="~/js/text.clear.button.js"></script>
+    <script src="~/plugins/input-mask/jquery.inputmask.js"></script>
+    <script src="~/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+    <script src="~/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+}

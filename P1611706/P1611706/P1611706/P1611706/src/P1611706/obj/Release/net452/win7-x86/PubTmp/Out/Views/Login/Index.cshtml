@@ -1,0 +1,139 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+
+	Layout = null;
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - 登入</title>
+    
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/login_style.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+		<link rel="stylesheet" href="~/css/login_style.css" />
+		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+
+
+	<div class="container login-container">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-md-offset-4">
+				<div class="account-wall text-center">
+					<img class="profile-img" src="~/images/logo.png"
+						 alt="">
+					@using (Html.BeginForm("check", "Login", FormMethod.Post))
+					{
+							<input type="text" id="employeeNo" class="form-control" placeholder="帳號" name="employeeNo" required autofocus>
+							<input type="password" id="password" class="form-control" name="password" placeholder="密碼" required>
+						<br/>
+							<button id="btnlogin" type="submit" class="btn btn-lg btn-success btn-block form-control text-center" style="width:300px; height:50px">登入</button>
+
+					}
+					
+					@*<form class="form-signin"  id="form">
+							<input type="text" id="EmployeeNo" class="form-control" placeholder="帳號" name="UserName" required autofocus>
+							<input type="password" id="password" class="form-control" name="password" placeholder="密碼" required>
+							<button id="btnlogin" onclick="onSubmitForm(event)" class="btn btn-lg btn-primary btn-block">登入</button>
+						</form>*@
+				</div>
+
+				@if (ViewBag.Error != null)
+				{<div class="alert alert-danger">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
+					</span>
+					@(ViewBag.Error)
+				</div>
+				}
+				
+			</div>
+		</div>
+	</div>
+
+	<environment names="Development">
+		<script src="~/lib/jquery/dist/jquery.js"></script>
+		<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="~/js/site.js" asp-append-version="true"></script>
+	</environment>
+	<environment names="Staging,Production">
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+				asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+				asp-fallback-test="window.jQuery">
+		</script>
+		<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+				asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+				asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+		</script>
+		<script src="~/js/site.min.js" asp-append-version="true"></script>
+	</environment>
+
+	<script>
+		$(document).ready(function () {
+			if (window.history && window.history.pushState) {
+				$(window).on('popstate', function () {
+					window.history.pushState('forward', null, '#');
+					window.history.forward(1);
+				});
+			}
+			window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+			window.history.forward(1);
+
+
+			$("#EmployeeNo").keyup(function (event) {
+				if (event.keyCode == 13) {
+					$("#btnlogin").click();
+				}
+			});
+
+			$("#password").keyup(function (event) {
+				if (event.keyCode == 13) {
+					$("#btnlogin").click();
+				}
+			});
+		});
+
+            function onSubmitForm(event) {
+                if (($("#EmployeeNo").val() != "") && ($("#password").val() != "")) {
+                    var EmployeeNo = $("#EmployeeNo").val();
+                    var password = $("#password").val();
+
+                    event.preventDefault();
+                    var mydata = $("#form").serialize();
+                    $.ajax({
+                        type: "post",
+                        url: "@Url.Action("check", "Login")",
+                        data: { "EmployeeNo": EmployeeNo, "password": password },
+                    })
+                               //.done(function (msg) {
+                               //    if (msg == "success") {
+                               //        location.href = '/Main/Index'
+                               //    }
+                               //    else
+                               //        alert("登入失敗，帳號或密碼輸入錯誤!!");
+                               //});
+                }
+                //return false;
+            }
+
+	</script>
+
+
+
+
+
+</body>
+
+</html>

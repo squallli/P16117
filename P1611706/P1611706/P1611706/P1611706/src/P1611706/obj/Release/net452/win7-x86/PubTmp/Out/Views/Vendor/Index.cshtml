@@ -1,0 +1,127 @@
+﻿
+
+@section headercss
+{
+	<link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+	<link href="~/css/datatables.min.css" rel="stylesheet" />
+	<link href="~/css/text_clear_button.css" rel="stylesheet" />
+	<link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+}
+<style type="text/css">
+	.btn span.glyphicon {
+		opacity: 0;
+	}
+
+	.btn.active span.glyphicon {
+		opacity: 1;
+	}
+
+	.modal-dialog {
+		width: 70%;
+	}
+
+	#exTab1 .tab-content {
+		color: white;
+		background-color: #428bca;
+		padding: 5px 15px;
+	}
+
+	#exTab2 h3 {
+		color: white;
+		background-color: #428bca;
+		padding: 5px 15px;
+	}
+
+	remove border radius for the tab #exTab1 .nav-pills > li > a {
+		border-radius: 0;
+	}
+
+	change border radius for the tab, apply corners on top #exTab3 .nav-pills > li > a {
+		border-radius: 4px 4px 0 0;
+	}
+
+	#exTab3 .tab-content {
+		color: white;
+		background-color: #428bca;
+		padding: 5px 15px;
+	}
+
+	.table {
+		text-align: center;
+	}
+
+	.table > tbody > tr > td {
+		vertical-align: middle;
+	}
+
+	.table > thead > tr > th {
+		vertical-align: middle;
+	}
+</style>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>
+		<a href="@(@Url.Action("Index","Vendor"))">代工廠資料維護</a>
+	</h1>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary">
+				<div class="box-header">
+				</div><!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="input-group">
+								<span class="input-group-addon">代工廠編號</span>
+								<div class="form-group has-feedback has-clear">
+									<input type="text" class="form-control" id="VendorNo" name="VendorNo">
+									<span class="form-control-clear glyphicon glyphicon-remove form-control-feedback hidden"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<button id="btnSearch" class="edit btn btn-success" onclick="searchVendor()"><i class="fa fa-fw fa-search"></i>搜尋</button>
+						</div>
+                        <div class="col-md-7">
+                            <button id="btnSearch" class="edit btn btn-info" onclick="AddVendor()"><i class="fa fa-fw fa-plus"></i>新增</button>
+                        </div>
+					</div>
+					<br />
+					<table id="vendor-table" class="table table-bordered text-center" cellspacing="0">
+						<thead>
+							<tr>
+								<th>代工廠編號</th>
+								<th></th>
+                                <th></th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+@section pagejs
+{
+	<script src="~/js/datatables.all.min.js"></script>
+	<script src="~/js/datatables.bootstrap.js"></script>
+	<script src="~/js/datatables.min.js"></script>
+	<script src="~/js/vendor.datatables.js"></script>
+	<script src="~/js/text.clear.button.js"></script>
+	<script src="~/js/bootstap-dialog.min.js"></script>
+
+	<script>
+		$("#VendorNo").keyup(function (event) {
+			if (event.keyCode == 13) {
+				$("#btnSearch").click();
+			}
+		});
+
+	</script>
+}

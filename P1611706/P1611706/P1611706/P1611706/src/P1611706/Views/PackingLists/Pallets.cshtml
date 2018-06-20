@@ -1,0 +1,58 @@
+﻿@using P1611706.Model
+
+@section headercss
+{
+	<link href="~/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" />
+	<link href="~/css/datatables.bootstrap.css" rel="stylesheet" />
+	<link href="~/css/datatables.min.css" rel="stylesheet" />
+	<link href="~/css/text_clear_button.css" rel="stylesheet" />
+	<link href="~/css/bootstrap-dialog.min.css" rel="stylesheet" />
+<link href="~/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>
+		<a href="@(@Url.Action("Index","PackingLists"))">產品報表</a> > 棧板
+	</h1>
+</section>
+<section class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary">
+				<div class="box-header">
+				</div><!-- /.box-header -->
+				<div class="box-body">
+					<table id="packingpalletsLists-table" class="table table-bordered text-center" cellspacing="0">
+						<thead>
+							<tr>
+								<th style="width:15%">代工廠編號</th>
+								<th style="width:15%">日期</th>
+								<th style="width:15%">產品名稱</th>
+								<th style="width:15%">栈號</th>
+								<th style="width:15%">有效期限</th>
+								<th style="width:15%">數量(箱)</th>
+								<th style="width:10%"></th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	@section pagejs
+{
+		<script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="~/js/datatables.all.min.js"></script>
+		<script src="~/js/datatables.bootstrap.js"></script>
+		<script src="~/js/datatables.min.js"></script>
+	<script src="~/js/packingpalletslists.datatables.js"></script>
+		<script src="~/js/bootstap-dialog.min.js"></script>
+		<script src="~/js/text.clear.button.js"></script>
+
+	}
+</section>

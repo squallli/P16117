@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">D:\Project\P1611706_20170719\P1611706\P1611706\P1611706\src\P1611706\obj\project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\tp00169.regalscan\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.2.0</NuGetToolVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)system.threading.tasks.analyzers\1.2.0-beta2\build\System.Threading.Tasks.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)system.threading.tasks.analyzers\1.2.0-beta2\build\System.Threading.Tasks.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)system.runtime.interopservices.analyzers\1.2.0-beta2\build\System.Runtime.InteropServices.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)system.runtime.interopservices.analyzers\1.2.0-beta2\build\System.Runtime.InteropServices.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)system.runtime.analyzers\1.2.0-beta2\build\System.Runtime.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)system.runtime.analyzers\1.2.0-beta2\build\System.Runtime.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)system.collections.immutable.analyzers\1.2.0-beta2\build\System.Collections.Immutable.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)system.collections.immutable.analyzers\1.2.0-beta2\build\System.Collections.Immutable.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)roslyn.diagnostics.analyzers\1.2.0-beta2\build\Roslyn.Diagnostics.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)roslyn.diagnostics.analyzers\1.2.0-beta2\build\Roslyn.Diagnostics.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.qualityguidelines.analyzers\1.2.0-beta2\build\Microsoft.QualityGuidelines.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.qualityguidelines.analyzers\1.2.0-beta2\build\Microsoft.QualityGuidelines.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.maintainability.analyzers\1.2.0-beta2\build\Microsoft.Maintainability.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.maintainability.analyzers\1.2.0-beta2\build\Microsoft.Maintainability.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.composition.analyzers\1.2.0-beta2\build\Microsoft.Composition.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.composition.analyzers\1.2.0-beta2\build\Microsoft.Composition.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.apidesignguidelines.analyzers\1.2.0-beta2\build\Microsoft.ApiDesignGuidelines.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.apidesignguidelines.analyzers\1.2.0-beta2\build\Microsoft.ApiDesignGuidelines.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)desktop.analyzers\1.2.0-beta2\build\Desktop.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)desktop.analyzers\1.2.0-beta2\build\Desktop.Analyzers.props')" />
+  </ImportGroup>
+</Project>
